@@ -22,6 +22,33 @@ title_case('the quick brown fox') # should return: 'The Quick Brown Fox'
 
 
 
+Test Cases:
+def test(title, minor_words, expect):
+  answer = title_case(title) if minor_words is None else title_case(title, minor_words)
+  message = "Gave title={0}{1}. Expected {2} but got {3}.".format(
+      repr(title),
+      '' if minor_words is None else ', minor_words=' + repr(minor_words),
+      repr(expect),
+      repr(answer))
+  Test.expect(answer == expect, message)
+
+test('', '', '')
+test('aBC deF Ghi', None, 'Abc Def Ghi')
+test('ab', 'ab', 'Ab')
+test('a bc', 'bc', 'A bc')
+test('a bc', 'BC', 'A bc')
+test('First a of in', 'an often into', 'First A Of In')
+test('a clash of KINGS', 'a an the OF', 'A Clash of Kings')
+test('the QUICK bRoWn fOX', 'xyz fox quick the', 'The quick Brown fox')
+
+
+
+
+
+
+
+
+
 
 
 ANSWER VARIATIONS:
