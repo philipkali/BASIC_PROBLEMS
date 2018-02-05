@@ -1,1 +1,1 @@
-
+CNN;input and output layer, multiple hidden layers.hidden layers consist of convolutional layers, pooling layers, fully connected layers and normalization layers
